@@ -22,3 +22,16 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+
+
+let imgDiv = document.querySelector('#imgDiv');
+let prev = document.querySelector('.left-arrow');
+let next = document.querySelector('.right-arrow');
+
+for (const key in images) {
+    imgDiv.innerHTML += `
+    <div class="item">
+        <img src="./assets/${images[key].image}" alt="Foto Carosello" class="img-fluid">   
+    </div>
+    `
+}
