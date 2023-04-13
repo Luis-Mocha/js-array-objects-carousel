@@ -30,8 +30,26 @@ let next = document.querySelector('.right-arrow');
 
 for (const key in images) {
     imgDiv.innerHTML += `
-    <div class="item">
-        <img src="./assets/${images[key].image}" alt="Foto Carosello" class="img-fluid">   
+    <div class="item position-relative">
+        <img src="./assets/${images[key].image}" alt="Foto Carosello" class="img-fluid">
+        <div class="text-light position-absolute bottom-0">
+            <h2>${images[key].title}</h2>
+            <p>${images[key].text}</p>
+        </div>
     </div>
     `
-}
+};
+
+let itemElements = document.querySelectorAll('.item');
+console.log(itemElements);
+
+// Al primo elemento item aggiungo la classe "FIRST-IMG" e "ACTIVE"
+itemElements[0].classList.add('active');
+
+
+let imgNumber = 0;
+itemElements.forEach(element => {
+    imgNumber++
+
+    element.classList.add(`itemNum-${imgNumber }`)
+});
