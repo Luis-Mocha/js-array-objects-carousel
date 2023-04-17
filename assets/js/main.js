@@ -46,7 +46,7 @@ images.forEach( (element, index) => {
             </div>
         </div>
         `;
-        
+
         thumbDiv.innerHTML += `
         <img src="./assets/${image}" alt="" class="thumb active">
         `
@@ -103,4 +103,9 @@ prev.addEventListener('click', function() {
     let activeItem = document.querySelector('.item.active');
     activeItem.classList.remove('active');
     imgDiv.getElementsByClassName('item')[active].classList.add('active')
+
+    // thumbs
+    let activeThumb = document.querySelector('.thumb.active')
+    activeThumb.classList.remove('active');
+    thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 })
