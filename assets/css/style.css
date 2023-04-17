@@ -1,7 +1,69 @@
-.item {
-    display: none
+
+#imgDiv {
+    max-width: 70%; 
+} 
+#imgDiv img {
+    aspect-ratio: 3/2;
+    object-fit: cover; 
 }
 
-.active {
+.left-arrow, 
+.right-arrow {
+    font-size: 17px;
+    cursor: pointer;
+    background-color: rgba(160, 154, 154, 0.45);
+    border-radius: 50%;
+    padding: 3px 13px;
+    position: absolute;
+    z-index: 99;
+}
+
+.left-arrow:hover, 
+.right-arrow:hover {
+    background-color: rgba(160, 154, 154, 0.9);
+}
+
+.left-arrow {
+    top: 0;
+}
+.right-arrow {
+    bottom: 0;
+}
+
+.item {
+    display: none;
+}
+.item.active {
     display: block;
+}
+
+.info-img {
+    width: 60%;
+    text-align: end;
+}
+
+#thumbs {
+    width: 20%;
+    height: 100%;
+    left: 0;
+    z-index: 99;
+}
+#thumbs img {
+    height: calc(100% / 5);
+    border-radius: 10%;
+    cursor: pointer;
+    filter: brightness(0.6);
+    scale: 0.8;
+}
+
+.thumb-active {
+    border: 4px ridge white;
+}
+
+#thumbs img:hover {
+    scale: 0.9;
+    transition: 1.2s;
+
+    filter: brightness(1);
+    border: 1px solid white;
 }

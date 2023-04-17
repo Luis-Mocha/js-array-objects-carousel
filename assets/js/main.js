@@ -25,31 +25,74 @@ const images = [
 
 
 let imgDiv = document.querySelector('#imgDiv');
+let thumbDiv = document.querySelector('#thumbs');
 let prev = document.querySelector('.left-arrow');
 let next = document.querySelector('.right-arrow');
 
-for (const key in images) {
-    imgDiv.innerHTML += `
-    <div class="item position-relative">
-        <img src="./assets/${images[key].image}" alt="Foto Carosello" class="img-fluid">
-        <div class="text-light position-absolute bottom-0">
-            <h2>${images[key].title}</h2>
-            <p>${images[key].text}</p>
+
+
+images.forEach( (element, index) => {
+
+    const {image, title, text} = element;
+
+    if (index === 0) {
+        imgDiv.innerHTML += `
+        <div class="item position-relative active">
+            <img src="./assets/${image}" alt="Foto Carosello" class="img-fluid">
+            <div class="info-img text-light position-absolute bottom-0 end-0 me-2">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
         </div>
-    </div>
-    `
-};
+        `
+        thumbDiv.innerHTML += `
+        <img src="./assets/${image}" alt="" class="thumb-active">
+        `
+     
+    } else {
+        imgDiv.innerHTML += `
+        <div class="item position-relative">
+        <img src="./assets/${image}" alt="Foto Carosello" class="img-fluid">
+            <div class="info-img text-light position-absolute bottom-0 end-0 me-2">
+                <h2>${title}</h2>
+                <p>${text}</p>
+            </div>
+        </div>
+        `
 
-let itemElements = document.querySelectorAll('.item');
-console.log(itemElements);
-
-// Al primo elemento item aggiungo la classe "FIRST-IMG" e "ACTIVE"
-itemElements[0].classList.add('active');
-
-
-let imgNumber = 0;
-itemElements.forEach(element => {
-    imgNumber++
-
-    element.classList.add(`itemNum-${imgNumber }`)
+        thumbDiv.innerHTML += `
+        <img src="./assets/${image}" alt="" class="thumb-active">
+        `
+    }
 });
+
+
+let active = 0;
+// next image
+next.addEventListener('click', function() {
+
+    if (active == images.lenght - 1) {
+        active = 0
+    } else {
+        active++
+    }
+
+    let activeItem = document.querySelector('.item.active');
+    activeItem.classList.remove('active');
+    imgDiv.getElementsByClassName('item')[active].classList.add('active')
+
+})
+
+// previous image
+prev.addEventListener('click', function() {
+
+    if (active == 0) {
+        active = images.length -1
+    } else {
+        active--
+    }
+
+    let activeItem = document.querySelector('.item.active');
+    activeItem.classList.remove('active');
+    imgDiv.getElementsByClassName('item')[active].classList.add('active')
+})
