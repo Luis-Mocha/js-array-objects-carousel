@@ -28,6 +28,7 @@ let imgDiv = document.querySelector('#imgDiv');
 let thumbDiv = document.querySelector('#thumbs');
 let prev = document.querySelector('.left-arrow');
 let next = document.querySelector('.right-arrow');
+console.log(thumbDiv);
 
 
 
@@ -44,9 +45,10 @@ images.forEach( (element, index) => {
                 <p>${text}</p>
             </div>
         </div>
-        `
+        `;
+        
         thumbDiv.innerHTML += `
-        <img src="./assets/${image}" alt="" class="thumb-active">
+        <img src="./assets/${image}" alt="" class="thumb active">
         `
      
     } else {
@@ -58,13 +60,14 @@ images.forEach( (element, index) => {
                 <p>${text}</p>
             </div>
         </div>
-        `
+        `;
 
         thumbDiv.innerHTML += `
-        <img src="./assets/${image}" alt="" class="thumb-active">
+        <img src="./assets/${image}" alt="" class="thumb">
         `
     }
 });
+
 
 
 let active = 0;
@@ -80,6 +83,11 @@ next.addEventListener('click', function() {
     let activeItem = document.querySelector('.item.active');
     activeItem.classList.remove('active');
     imgDiv.getElementsByClassName('item')[active].classList.add('active')
+
+    // thumbs
+    let activeThumb = document.querySelector('.thumb.active')
+    activeThumb.classList.remove('active');
+    thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 
 })
 
