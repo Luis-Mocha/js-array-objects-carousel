@@ -67,11 +67,3 @@ max-width: 800px;
     scale: 1;
     display: block;
 }
-
-/* .thumb:hover {
-    scale: 0.9;
-    transition: 1.2s;
-
-    filter: brightness(1);
-    border: 1px solid white;
-} */

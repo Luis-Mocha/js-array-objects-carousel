@@ -109,3 +109,16 @@ prev.addEventListener('click', function() {
     activeThumb.classList.remove('active');
     thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 })
+
+let thumbsArray = document.querySelectorAll('.thumb');
+console.log(thumbsArray);
+
+thumbsArray.forEach(element => {
+    element.addEventListener('click', function() {
+
+        console.log('hellooo')
+        let activeThumb = document.querySelector('.thumb.active')
+        activeThumb.classList.remove('active');
+        element.classList.add('active');
+    })
+});
