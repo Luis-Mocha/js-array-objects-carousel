@@ -71,7 +71,7 @@ let active = 0;
 // next image
 next.addEventListener('click', function() {
 
-    if (active == images.lenght - 1) {
+    if (active == images.length - 1) {
         active = 0
     } else {
         active++
