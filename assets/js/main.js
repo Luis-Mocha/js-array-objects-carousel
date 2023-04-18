@@ -125,7 +125,7 @@ thumbsArray.forEach((element, index) => { //Chiamo il parametro
 });
 
 
-// ---- MY FUNCTIONS
+// ---- MY FUNCTIONS ----
 function changeActiveImg() {
     // Sposto la classe active all'elemento IMG selezionato
     document.querySelector('.item.active').classList.remove('active');
@@ -137,3 +137,30 @@ function changeActiveThumb() {
     document.querySelector('.thumb.active').classList.remove('active');
     thumbDiv.getElementsByClassName('thumb')[active].classList.add('active');
 };  
+
+function autoPlayFunction() {
+    if (active == images.length - 1) {
+        active = 0
+    } else {
+        active++
+    };
+
+    // Sposto la classe active all'elemento selezionato IMAGES
+    changeActiveImg()
+
+    changeActiveThumb()
+};
+
+
+const playBtn = document.querySelector('#playBtn')
+const stopBtn = document.querySelector('#stopBtn')
+
+let Functioner;
+
+playBtn.addEventListener('click', function() {
+   autoPlayer = setInterval( autoPlayFunction, 2000)}
+)
+
+stopBtn.addEventListener('click', function () {
+    clearInterval(autoPlayer)
+});
