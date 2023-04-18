@@ -80,13 +80,12 @@ next.addEventListener('click', function() {
         active++
     }
 
-    let activeItem = document.querySelector('.item.active');
-    activeItem.classList.remove('active');
+    // Sposto la classe active all'elemento selezionato IMAGES
+    document.querySelector('.item.active').classList.remove('active');
     imgDiv.getElementsByClassName('item')[active].classList.add('active')
 
     // thumbs
-    let activeThumb = document.querySelector('.thumb.active')
-    activeThumb.classList.remove('active');
+    document.querySelector('.thumb.active').classList.remove('active');
     thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 
 })
@@ -100,35 +99,32 @@ prev.addEventListener('click', function() {
         active--
     }
 
-    let activeItem = document.querySelector('.item.active');
-    activeItem.classList.remove('active');
+    // Sposto la classe active all'elemento selezionato IMAGES
+    document.querySelector('.item.active').classList.remove('active');
     imgDiv.getElementsByClassName('item')[active].classList.add('active')
 
     // thumbs
-    let activeThumb = document.querySelector('.thumb.active')
-    activeThumb.classList.remove('active');
+    document.querySelector('.thumb.active').classList.remove('active');
     thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 })
 
 
-//thumbs changing image
+//CAMBIO L'IMMAGINE PRINCIPALE AL CLICK DELLA CORRISPONDENTE THUMB
 let thumbsArray = document.querySelectorAll('.thumb');
 console.log(thumbsArray);
 
 thumbsArray.forEach((element, index) => {
+
     element.addEventListener('click', function() {
 
         // console.log('funziono' + index)
 
-        let activeThumb = document.querySelector('.thumb.active')
-        activeThumb.classList.remove('active');
+        // Sposto la classe active all'elemento selezionato THUMBS
+        document.querySelector('.thumb.active').classList.remove('active');
         element.classList.add('active');
 
-        let activeItem = document.querySelector('.item.active');
-        activeItem.classList.remove('active');
-        imgDiv.getElementsByClassName('item')[index].classList.add('active')
-
-
-
+        // Sposto la classe active all'elemento selezionato IMAGES
+        document.querySelector('.item.active').classList.remove('active');
+        imgDiv.getElementsByClassName('item')[index].classList.add('active');
     })
 });
