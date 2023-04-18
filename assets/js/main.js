@@ -110,15 +110,25 @@ prev.addEventListener('click', function() {
     thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
 })
 
+
+//thumbs changing image
 let thumbsArray = document.querySelectorAll('.thumb');
 console.log(thumbsArray);
 
-thumbsArray.forEach(element => {
+thumbsArray.forEach((element, index) => {
     element.addEventListener('click', function() {
 
-        console.log('hellooo')
+        // console.log('funziono' + index)
+
         let activeThumb = document.querySelector('.thumb.active')
         activeThumb.classList.remove('active');
         element.classList.add('active');
+
+        let activeItem = document.querySelector('.item.active');
+        activeItem.classList.remove('active');
+        imgDiv.getElementsByClassName('item')[index].classList.add('active')
+
+
+
     })
 });
