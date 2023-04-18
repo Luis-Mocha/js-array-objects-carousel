@@ -78,17 +78,14 @@ next.addEventListener('click', function() {
         active = 0
     } else {
         active++
-    }
+    };
 
     // Sposto la classe active all'elemento selezionato IMAGES
-    document.querySelector('.item.active').classList.remove('active');
-    imgDiv.getElementsByClassName('item')[active].classList.add('active')
+    changeActiveImg()
 
     // thumbs
-    document.querySelector('.thumb.active').classList.remove('active');
-    thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
-
-})
+    changeActiveThumb()
+});
 
 // previous image
 prev.addEventListener('click', function() {
@@ -97,23 +94,21 @@ prev.addEventListener('click', function() {
         active = images.length -1
     } else {
         active--
-    }
+    };
 
     // Sposto la classe active all'elemento selezionato IMAGES
-    document.querySelector('.item.active').classList.remove('active');
-    imgDiv.getElementsByClassName('item')[active].classList.add('active')
+    changeActiveImg()
 
     // thumbs
-    document.querySelector('.thumb.active').classList.remove('active');
-    thumbDiv.getElementsByClassName('thumb')[active].classList.add('active')
-})
+    changeActiveThumb()
+});
 
 
 //CAMBIO L'IMMAGINE PRINCIPALE AL CLICK DELLA CORRISPONDENTE THUMB
 let thumbsArray = document.querySelectorAll('.thumb');
 console.log(thumbsArray);
 
-thumbsArray.forEach((element, index) => {
+thumbsArray.forEach((element, index) => { //Chiamo il parametro 
 
     element.addEventListener('click', function() {
 
@@ -128,3 +123,17 @@ thumbsArray.forEach((element, index) => {
         imgDiv.getElementsByClassName('item')[index].classList.add('active');
     })
 });
+
+
+// ---- MY FUNCTIONS
+function changeActiveImg() {
+    // Sposto la classe active all'elemento IMG selezionato
+    document.querySelector('.item.active').classList.remove('active');
+    imgDiv.getElementsByClassName('item')[active].classList.add('active');
+};
+
+function changeActiveThumb() {
+    // Sposto la classe active all'elemento THUMB selezionato
+    document.querySelector('.thumb.active').classList.remove('active');
+    thumbDiv.getElementsByClassName('thumb')[active].classList.add('active');
+};  
